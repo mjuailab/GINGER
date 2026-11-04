@@ -1,0 +1,6 @@
+include README.md THIRD_PARTY_NOTICES.md environment.yml requirements.txt
+recursive-include configs *.json
+recursive-include splits *.json
+recursive-include docs *.md *.json
+recursive-include examples *.py
+recursive-include tests *.py

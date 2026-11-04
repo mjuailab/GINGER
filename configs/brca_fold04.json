@@ -1,0 +1,25 @@
+{
+  "seed": 3407,
+  "hidden": 128,
+  "latent": 32,
+  "topk": 100,
+  "temperature": 2.0,
+  "strength": 0.1,
+  "batch_cells": 512,
+  "sc_aux_batch": 512,
+  "prediction_batch": 512,
+  "lr": 0.0001,
+  "max_epochs": 2000,
+  "eval_every": 10,
+  "patience": 10,
+  "min_delta": 0.002,
+  "reference_rmse": 1.5489055845076367,
+  "loss_weights": {
+    "recon_st": 0.1,
+    "recon_sc": 0.1,
+    "mmd": 1.0,
+    "consistency": 1.0,
+    "imputation": 1.0,
+    "imputation_mse": 1.0
+  }
+}

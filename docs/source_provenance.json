@@ -1,0 +1,16 @@
+{
+  "model_source": "spadit_new/diagnostics/brca_dim32_mask10_sc3linear_strength010_5fold_20261017",
+  "upstream_stai_commit": "3376cc16cc6d8461edafc0aeb4519b92d18474b7",
+  "source_sha256": {
+    "model.py": "8d8759611d61646242f171bb18101df7325db49ccf0b2c73cacd51ed6e1b14b1",
+    "base_model.py": "29061660772e6f4ebaec31a8014bad9124ab82bea7316e84642c73454ac25803",
+    "sc_encoder.py": "a122bc4a405188077265ea871d231d966867851ba05a073b5bcb4f481773861c",
+    "data.py": "a74554e66c748d03e0960a74c81d4b43ac2f44f5b14d30b69153f98f64f7c823",
+    "base_data.py": "ebbb2f0e1416c6da9fe2d60d167bd2c2a29d5a3cfce121f48c4d191c23d3bcb2",
+    "graph_direction.py": "5c637f8621bb5b4f5a4bce659e6125563b24b176b30a1e4eb0b9c833201ccc2b",
+    "run.py": "9fab9f64000b595ece9bda7dae7fa6ab3a72c1b1460b12b94a6cbcad9fb77602",
+    "joint_selection.py": "ddcbd5f6dc9cfd168b388fdea8dfe2f634eee9ca0e4bb4b5a533ad73153e3b24",
+    "source/stai_layers.py": "6e2f91768c93067e3fcdf3843d6575c0b7feb6f20edd748fb464031473f1f69b",
+    "source/cluster_model.py": "c3d48578fc104f9efce8e4a1b34eeb336bb9d6ac56ec52169053cc1b6bd6651a"
+  }
+}

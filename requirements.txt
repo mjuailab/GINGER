@@ -1,0 +1,2 @@
+# Install a platform-appropriate PyTorch 2.5.1 build before this file.
+-e .
