@@ -1,10 +1,6 @@
 # GIST
 
-**Gene-aware spatial transcriptomics imputation using a single-cell RNA-seq reference.**
-
-GIST predicts unmeasured genes in spatial transcriptomics (ST) data from a matched scRNA-seq (SC) reference. A spatial graph encoder and an SC encoder learn a shared representation. For each ST cell, GIST retrieves nearby reference cells and computes target-gene-specific transfer weights using SC gene correlations and observed expression differences.
-
-This repository contains the selected pre-DCA model, a portable training pipeline, fixed gene splits, and a synthetic example. Raw research data and pretrained checkpoints are not bundled.
+GIST predicts unmeasured gene expression in spatial transcriptomics (ST) using spatial representations and a scRNA-seq reference. It refines reference-cell weights for each target gene using correlations with observed genes to reconstruct cell-specific expression and spatial expression patterns. Target genes are unobserved in ST but remain available in the scRNA-seq reference.
 
 ## Overview
 
