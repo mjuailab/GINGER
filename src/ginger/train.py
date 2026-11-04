@@ -12,7 +12,7 @@ import torch
 from .data import Runtime, predict
 from .io import digest, fresh_directory, read_json, save_checkpoint, setup, write_json
 from .metrics import evaluate_genes
-from .model import GIST
+from .model import GINGER
 
 DEFAULTS = dict(
     seed=3407,
@@ -78,7 +78,7 @@ def configuration(path=None):
 
 
 def make_model(genes, cfg, device):
-    return GIST(
+    return GINGER(
         genes,
         **{k: cfg[k] for k in ["hidden", "latent", "topk", "temperature", "strength"]},
     ).to(device)
@@ -252,7 +252,7 @@ def train(data, output, config=None, device="cpu"):
 def load_model(checkpoint, device="cpu", prepared=None):
     bundle = torch.load(checkpoint, map_location="cpu", weights_only=True)
     if bundle.get("format_version") != 1:
-        raise ValueError("Expected a GIST release checkpoint (format_version=1)")
+        raise ValueError("Expected a GINGER release checkpoint (format_version=1)")
     if prepared is not None:
         if (
             digest(Path(prepared) / "manifest.json")

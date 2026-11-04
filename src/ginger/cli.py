@@ -47,7 +47,7 @@ def prediction_artifacts(output, predictions, genes, cells, metadata):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(
-        prog="gist", description="GIST spatial transcriptomics imputation"
+        prog="ginger", description="GINGER spatial transcriptomics imputation"
     )
     from . import __version__
 
@@ -87,7 +87,7 @@ def main(argv=None):
     )
     p.add_argument("--data", required=True)
     p.add_argument(
-        "--prediction", required=True, help="Directory written by gist predict"
+        "--prediction", required=True, help="Directory written by ginger predict"
     )
     p.add_argument("--output", required=True)
 

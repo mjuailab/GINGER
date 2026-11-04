@@ -4,7 +4,7 @@
 
 Supply ST and SC AnnData files with raw counts, matching gene identifiers and unique cell identifiers. A count layer can be selected explicitly. The reader supports dense and sparse `.h5ad` matrices. Spatial coordinates may be provided in `obsm['spatial']` or two observation columns selected with `--x-column` and `--y-column`.
 
-The repository does not download data, perform gene-name remapping, deduplicate genes, select reference cell types, or apply dataset-specific QC. Those decisions must be made explicitly before `gist prepare`. Inputs must contain at least four spatial cells for Delaunay triangulation and a valid two-dimensional coordinate array. Triangulation failures are surfaced; there is no silent kNN fallback.
+The repository does not download data, perform gene-name remapping, deduplicate genes, select reference cell types, or apply dataset-specific QC. Those decisions must be made explicitly before `ginger prepare`. Inputs must contain at least four spatial cells for Delaunay triangulation and a valid two-dimensional coordinate array. Triangulation failures are surfaced; there is no silent kNN fallback.
 
 ## Splits
 

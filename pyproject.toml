@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gist-imputation"
+name = "ginger-imputation"
 version = "0.1.0"
 description = "Gene-aware spatial transcriptomics imputation from a single-cell reference"
 readme = "README.md"
@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [project.scripts]
-gist = "gist.cli:main"
+ginger = "ginger.cli:main"
 
 [tool.setuptools]
 license-files = ["THIRD_PARTY_NOTICES.md"]

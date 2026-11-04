@@ -1,6 +1,6 @@
 # Third-party attribution
 
-`src/gist/layers.py` adapts the `MLPEncoder`, `MLPDecoder`, `GATLayer` and `GATEncoder` implementations from **stAI**:
+`src/ginger/layers.py` adapts the `MLPEncoder`, `MLPDecoder`, `GATLayer` and `GATEncoder` implementations from **stAI**:
 
 - Repository: https://github.com/gszou99/stAI
 - Inspected local upstream commit: `3376cc16cc6d8461edafc0aeb4519b92d18474b7`

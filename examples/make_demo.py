@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from scipy import sparse
 
-from gist.io import fresh_directory
+from ginger.io import fresh_directory
 
 
 def main():

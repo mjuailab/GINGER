@@ -2,7 +2,7 @@
 
 ## Selected model
 
-The release is based on the completed BRCA pre-DCA gene-aware model used in the GIST figures, originally stored under the experiment name `brca_dim32_mask10_sc3linear_strength010_5fold_20261017`, condition `relation_strength010`. Source hashes are recorded in [source_provenance.json](source_provenance.json).
+The release is based on the completed BRCA pre-DCA gene-aware model used in the GINGER figures, originally stored under the experiment name `brca_dim32_mask10_sc3linear_strength010_5fold_20261017`, condition `relation_strength010`. Source hashes are recorded in [source_provenance.json](source_provenance.json).
 
 The cleaned model preserves parameter names, initialization order, encoder/decoder calculations, exact top-k retrieval, gene-specific transfer and six loss terms. The portable runtime adopts the later experiment's one-active-SC-context allocation to avoid caching all ten normalized reference contexts on the GPU. Original experiments, predictions and checkpoints remain separate from this release.
 
@@ -11,14 +11,14 @@ The cleaned model preserves parameter names, initialization order, encoder/decod
 The original five gene splits, ten masks per split, seed 3407, network dimensions, optimizer settings, loss weights and fold-specific validation reference RMSE values are bundled. For fold `00`, use:
 
 ```bash
-gist prepare --st data/brca_st_counts.h5ad --sc data/brca_sc_full_counts.h5ad \
+ginger prepare --st data/brca_st_counts.h5ad --sc data/brca_sc_full_counts.h5ad \
   --split splits/brca/fold00.json --masks splits/brca/masks00.json \
   --output data/brca/fold00
-gist train --data data/brca/fold00 --config configs/brca_fold00.json \
+ginger train --data data/brca/fold00 --config configs/brca_fold00.json \
   --output outputs/brca/fold00/train --device cuda:0
-gist predict --data data/brca/fold00 --checkpoint outputs/brca/fold00/train/best.pt \
+ginger predict --data data/brca/fold00 --checkpoint outputs/brca/fold00/train/best.pt \
   --output outputs/brca/fold00/prediction --device cuda:0
-gist evaluate --data data/brca/fold00 --prediction outputs/brca/fold00/prediction \
+ginger evaluate --data data/brca/fold00 --prediction outputs/brca/fold00/prediction \
   --output outputs/brca/fold00/evaluation
 ```
 

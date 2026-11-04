@@ -1,6 +1,6 @@
 # Method and implementation
 
-GIST combines a one-layer spatial graph encoder with a three-linear-layer SC encoder. Both decoders reconstruct the entire outer training-gene panel. The GAT uses complete incoming neighborhoods for each root cell; edges are not restricted to cells in the current minibatch. With one message-passing layer this preserves full-graph root outputs.
+GINGER combines a one-layer spatial graph encoder with a three-linear-layer SC encoder. Both decoders reconstruct the entire outer training-gene panel. The GAT uses complete incoming neighborhoods for each root cell; edges are not restricted to cells in the current minibatch. With one message-passing layer this preserves full-graph root outputs.
 
 ## Normalization and gene information
 

@@ -38,7 +38,7 @@ def observed_distance(st_observed, sc_observed, indices, inverse_variance, relat
     return discrepancy @ relation.T
 
 
-class GIST(nn.Module):
+class GINGER(nn.Module):
 
     def __init__(
         self, genes, hidden=128, latent=32, topk=100, temperature=2.0, strength=0.1

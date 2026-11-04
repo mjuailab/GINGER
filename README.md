@@ -1,10 +1,10 @@
-# GIST
+# GINGER
 
-GIST predicts unmeasured gene expression in spatial transcriptomics (ST) using spatial representations and a scRNA-seq reference. It refines reference-cell weights for each target gene using correlations with observed genes to reconstruct cell-specific expression and spatial expression patterns. Target genes are unobserved in ST but remain available in the scRNA-seq reference.
+GINGER predicts unmeasured gene expression in spatial transcriptomics (ST) using spatial representations and a scRNA-seq reference. It refines reference-cell weights for each target gene using correlations with observed genes to reconstruct cell-specific expression and spatial expression patterns. Target genes are unobserved in ST but remain available in the scRNA-seq reference.
 
 ## Overview
 
-![GIST model overview](assets/overview.svg)
+![GINGER model overview](assets/overview.svg)
 
 ## Installation
 
@@ -12,8 +12,8 @@ Python 3.10 and PyTorch 2.5.1 are the tested versions. Run the commands below fr
 
 ```bash
 conda env create -f environment.yml
-conda activate gist
-gist --help
+conda activate ginger
+ginger --help
 ```
 
 Alternatively, use an existing Python 3.10 environment:
@@ -32,24 +32,24 @@ This small synthetic example checks data preparation, training, prediction and e
 ```bash
 python examples/make_demo.py --output data/demo
 
-gist prepare \
+ginger prepare \
   --st data/demo/st.h5ad \
   --sc data/demo/sc.h5ad \
   --output data/demo/prepared
 
-gist train \
+ginger train \
   --data data/demo/prepared \
   --config configs/demo.json \
   --output outputs/demo/train \
   --device cpu
 
-gist predict \
+ginger predict \
   --data data/demo/prepared \
   --checkpoint outputs/demo/train/best.pt \
   --output outputs/demo/prediction \
   --device cpu
 
-gist evaluate \
+ginger evaluate \
   --data data/demo/prepared \
   --prediction outputs/demo/prediction \
   --output outputs/demo/evaluation
@@ -74,14 +74,14 @@ Use matching gene identifiers in ST and SC. Resolve duplicates and perform datas
 ## Training on your data
 
 ```bash
-gist prepare \
+ginger prepare \
   --st data/st_counts.h5ad \
   --sc data/sc_counts.h5ad \
   --split splits/brca/fold00.json \
   --masks splits/brca/masks00.json \
   --output data/brca/fold00
 
-gist train \
+ginger train \
   --data data/brca/fold00 \
   --config configs/brca_fold00.json \
   --output outputs/brca/fold00/train \
@@ -101,7 +101,7 @@ The default reference scale is the validation RMSE of the SC mean, fixed before 
 For remote servers, launch long training runs in a persistent session, for example:
 
 ```bash
-tmux new -s gist-training
+tmux new -s ginger-training
 # Run the training command inside this session; detach with Ctrl-b, then d.
 ```
 
@@ -129,7 +129,7 @@ CP10K library sizes use only the visible training genes. During self-supervision
 After training, create a text file with one target gene per line. The target genes must be present in SC, and the ST input must contain the checkpoint's observed training genes. Target expression is not required in ST.
 
 ```bash
-gist impute \
+ginger impute \
   --st data/st_observed_only.h5ad \
   --sc data/sc_full_counts.h5ad \
   --checkpoint outputs/brca/fold00/train/best.pt \
@@ -138,7 +138,7 @@ gist impute \
   --device cuda:0
 ```
 
-Use the same reference and preprocessing as training when applying the model to the same tissue. The checkpoint fixes the observed gene set; adding validation genes as inputs requires retraining with a new split. Unmeasured-gene predictions have no measured ST ground truth and cannot be scored by `gist evaluate`.
+Use the same reference and preprocessing as training when applying the model to the same tissue. The checkpoint fixes the observed gene set; adding validation genes as inputs requires retraining with a new split. Unmeasured-gene predictions have no measured ST ground truth and cannot be scored by `ginger evaluate`.
 
 ## Validation
 

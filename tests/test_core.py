@@ -3,12 +3,12 @@ import unittest
 import numpy as np
 import torch
 
-from gist.data import features
-from gist.graph import build_graph, incoming_index, incoming_neighborhood
-from gist.metrics import evaluate_genes
-from gist.model import GIST, relation_weights
-from gist.prepare import correlations, make_masks, make_split, validate_split
-from gist.train import update_monitor
+from ginger.data import features
+from ginger.graph import build_graph, incoming_index, incoming_neighborhood
+from ginger.metrics import evaluate_genes
+from ginger.model import GINGER, relation_weights
+from ginger.prepare import correlations, make_masks, make_split, validate_split
+from ginger.train import update_monitor
 
 
 class CoreTests(unittest.TestCase):
@@ -30,7 +30,7 @@ class CoreTests(unittest.TestCase):
     def test_minibatch_gat_matches_full_graph(self):
         coords = np.random.default_rng(3).random((40, 2))
         edges = torch.from_numpy(build_graph(coords))
-        model = GIST(12, topk=4).eval()
+        model = GINGER(12, topk=4).eval()
         features_ = torch.randn(40, 12)
         cells = torch.tensor([2, 11, 20, 32])
         nodes, local_edges, roots = incoming_neighborhood(
@@ -42,7 +42,7 @@ class CoreTests(unittest.TestCase):
         torch.testing.assert_close(full, local, rtol=1e-5, atol=1e-6)
 
     def test_transfer_weights_and_gradient_path(self):
-        model = GIST(10, topk=5)
+        model = GINGER(10, topk=5)
         st = torch.randn(6, 32, requires_grad=True)
         sc = torch.randn(20, 32, requires_grad=True)
         values = torch.rand(20, 3)

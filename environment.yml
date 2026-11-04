@@ -1,4 +1,4 @@
-name: gist
+name: ginger
 channels:
   - conda-forge
 dependencies:
