@@ -6,6 +6,10 @@ GIST predicts unmeasured genes in spatial transcriptomics (ST) data from a match
 
 This repository contains the selected pre-DCA model, a portable training pipeline, fixed gene splits, and a synthetic example. Raw research data and pretrained checkpoints are not bundled.
 
+## Overview
+
+![GIST model overview](assets/overview.svg)
+
 ## Installation
 
 Python 3.10 and PyTorch 2.5.1 are the tested versions. Run the commands below from the repository root after cloning or downloading it.
